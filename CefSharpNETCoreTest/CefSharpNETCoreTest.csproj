@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!-- https://github.com/cefsharp/CefSharp/issues/4060 -->
+    <!-- <TargetFrameworks>net48;netcoreapp3.1</TargetFrameworks> -->
+    <TargetFrameworks>net48</TargetFrameworks>
+    <UseWPF>true</UseWPF>
+    <!-- https://github.com/cefsharp/CefSharp/issues/1714#issuecomment-227041722 -->
+    <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <PackageReference Include="CefSharp.Wpf" Version="100.0.140" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+    <PackageReference Include="CefSharp.Wpf.NETCore" Version="100.0.140" />
+  </ItemGroup>
+
+</Project>
